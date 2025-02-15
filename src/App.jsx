@@ -1,14 +1,15 @@
 import React from "react";
+import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Preloader from "./components/Preloader";
+import About from "./components/About";
 
 const App = () => {
   return (
-    <div className="w-full h-screen">
-      <Preloader />
-
-      {/* <Hero /> */}
-    </div>
+    <>
+      <Navbar />
+      <Hero />
+      <About />
+    </>
   );
 };
 
