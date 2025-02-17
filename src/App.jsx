@@ -1,23 +1,17 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Project from "./components/Project";
-import Contact from "./components/Contact";
+import React, { useEffect, useState } from "react";
+import Preloader from "./components/Preloader";
+import MainContent from "./components/MainContent";
 
 const App = () => {
-  return (
-    <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Hero />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/project" element={<Project />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-    </>
-  );
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000); // Simulate loading for 3 seconds
+  }, []);
+
+  return <>{loading ? <Preloader /> : <MainContent />}</>;
 };
 
 export default App;
