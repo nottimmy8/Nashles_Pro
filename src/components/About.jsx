@@ -2,7 +2,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="w-full bg-secondary py-12">
+    <div className="w-full bg-secondary h-screen py-12">
       <div className="max-w-6xl mx-auto p-4  flex items-center justify-between">
         <div className="w-[480px] h-[480px]">
           <img
