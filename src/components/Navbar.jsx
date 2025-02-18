@@ -18,7 +18,7 @@ const Navbar = () => {
   };
   const [nav, setNav] = useState(false);
   return (
-    <div className="bg-black text-black  z-10 fixed w-full">
+    <div className="bg-[#0e0e0e]  text-black  z-50 fixed w-full">
       <nav className="max-w-7xl mx-auto  ">
         {/* destop nav */}
         <div className="">
@@ -50,7 +50,7 @@ const Navbar = () => {
               </div>
               {/* Link */}
               <div className="">
-                <ul className="flex flex-col items-center font-bold text-[60px] leading-14  py-3">
+                <ul className="flex flex-col items-center font-bold text-[60px] leading-14  ">
                   <li className=" ">
                     <Link to="/" onClick={() => setNav(false)}>
                       {" "}
