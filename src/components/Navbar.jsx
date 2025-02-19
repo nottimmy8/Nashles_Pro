@@ -52,7 +52,13 @@ const Navbar = () => {
               <div className="">
                 <ul className="flex flex-col items-center font-bold text-[60px] leading-14  ">
                   <li className=" ">
-                    <Link to="/" onClick={() => setNav(false)}>
+                    <Link
+                      to="/"
+                      onClick={() => {
+                        setNav(false);
+                        window.location.href = "/"; // Reload the page
+                      }}
+                    >
                       {" "}
                       HOME
                     </Link>
