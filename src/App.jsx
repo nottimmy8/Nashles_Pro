@@ -8,21 +8,20 @@ import Project from "./components/Project";
 import Contact from "./components/Contact";
 
 const App = () => {
-  const location = useLocation(); // Moved this above
-  const [loading, setLoading] = useState(
-    location.pathname === "/" && !sessionStorage.getItem("preloaderShown")
-  );
+  const location = useLocation();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (loading) {
+    // Show preloader if it's the first visit or the user is reloading on "/home"
+    if (location.pathname === "/home") {
+      setLoading(true);
       const timer = setTimeout(() => {
         setLoading(false);
-        sessionStorage.setItem("preloaderShown", "true"); // Store preloader state
       }, 3000);
 
       return () => clearTimeout(timer);
     }
-  }, [loading]);
+  }, [location.pathname]);
 
   return (
     <>
@@ -32,7 +31,7 @@ const App = () => {
         <>
           <Navbar />
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/project" element={<Project />} />
             <Route path="/contact" element={<Contact />} />

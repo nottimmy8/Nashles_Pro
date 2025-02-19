@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
+  const [nav, setNav] = useState(false);
+
   const navVariants = {
     hidden: { y: "-100%", opacity: 0 },
     visible: {
@@ -13,94 +15,125 @@ const Navbar = () => {
     exit: {
       y: "-100%",
       opacity: 0,
-      transition: { duration: 0.8, ease: "easeInOut" },
+      transition: { duration: 0.9, ease: "easeInOut" },
     },
   };
-  const [nav, setNav] = useState(false);
+
+  const menuItems = ["HOME", "ABOUT", "PROJECT", "CONTACT"];
+
   return (
-    <div className="bg-[#0e0e0e]  text-black  z-50 fixed w-full">
-      <nav className="max-w-7xl mx-auto  ">
-        {/* destop nav */}
+    <div className="bg-transparent text-[#0E0F14] z-50 fixed w-full">
+      <nav className="max-w-7xl mx-auto">
+        {/* Desktop Nav */}
         <div className="">
-          <div className=" flex items-center justify-between text-lightGray p-4 ">
-            {/* logo text */}
-            <h1 className=" font-family font-bold text-3xl">Nashles</h1>
-            {/* menu */}
-            <div onClick={() => setNav(true)} className=" cursor-pointer">
-              <h2 className="font-family font-bold text-2xl">MENU</h2>
+          <div className="flex items-center justify-between text-[#0E0F14] p-4">
+            {/* Logo Text */}
+            <motion.h1
+              initial={{ y: "100%", opacity: 0 }}
+              animate={{ y: "0%", opacity: 1 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              className="font-family font-bold text-3xl"
+            >
+              Nashles
+            </motion.h1>
+
+            {/* Menu Button */}
+            <div onClick={() => setNav(true)} className="cursor-pointer">
+              <motion.h2
+                initial={{ y: "100%", opacity: 0 }}
+                animate={{ y: "0%", opacity: 1 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                className="font-family font-bold text-2xl "
+              >
+                MENU
+              </motion.h2>
             </div>
           </div>
         </div>
-        {/* mobile nav */}
-        <div>
-          <motion.div
-            className="fixed left-0 top-0 w-full h-[400px] z-[1000] text-black bg-white p-4"
-            variants={navVariants}
-            initial="hidden"
-            animate={nav ? "visible" : "hidden"}
-            exit="exit"
-          >
-            {/* menuNav contents */}
-            <div className="flex justify-between items-start">
-              <div className="">
-                <h1 className=" font-bold font-family text-2xl">
-                  Oyewole Emmanuel <br />
-                  Nasles
-                </h1>
-              </div>
-              {/* Link */}
-              <div className="">
-                <ul className="flex flex-col items-center font-bold text-[60px] leading-14  ">
-                  <li className=" ">
-                    <Link
-                      to="/"
-                      onClick={() => {
-                        setNav(false);
-                        window.location.href = "/"; // Reload the page
-                      }}
-                    >
-                      {" "}
-                      HOME
-                    </Link>
-                  </li>
-                  <li className=" ">
-                    <Link to="/about" onClick={() => setNav(false)}>
-                      ABOUT
-                    </Link>
-                  </li>
-                  <li className=" ">
-                    <Link to="/project" onClick={() => setNav(false)}>
-                      {" "}
-                      PROJECT
-                    </Link>
-                  </li>
-                  <li className=" ">
-                    <Link to="/contact" onClick={() => setNav(false)}>
-                      {" "}
-                      CONTACT
-                    </Link>
-                  </li>
-                </ul>
-                {/* social */}
-                <div className="mt-14">
-                  <div className=" flex gap-5">
-                    <h1 className="font-bold font-family text-2xl">Linkdln</h1>
-                    <h1 className="font-bold font-family text-2xl">Threads</h1>
-                    <h1 className="font-bold font-family text-2xl">
-                      X(Twitter)
-                    </h1>
-                  </div>
+
+        {/* Mobile Nav */}
+        <AnimatePresence>
+          {nav && (
+            <motion.div
+              key="mobile-nav"
+              className="fixed left-0 top-0 w-full h-[400px] z-[1000] text-[#F1F0EB] bg-[#1C1D1D] p-4"
+              variants={navVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+            >
+              <motion.div className="flex justify-between items-start">
+                {/* Name */}
+                <motion.h1
+                  initial={{ y: "100%", opacity: 0 }}
+                  animate={{ y: "0%", opacity: 1 }}
+                  transition={{
+                    duration: 0.6,
+                    ease: "easeOut",
+                    delay: 0.5,
+                    speed: "0.2",
+                  }}
+                  className="font-bold font-family text-2xl"
+                >
+                  Oyewole Emmanuel <br /> Nashles
+                </motion.h1>
+
+                <div>
+                  {/* Navigation Links */}
+                  <ul className="flex flex-col items-center font-bold text-[60px] leading-14">
+                    {menuItems.map((item, index) => (
+                      <motion.li
+                        key={item}
+                        initial={{ y: "100%", opacity: 0 }}
+                        animate={{ y: "0%", opacity: 1 }}
+                        transition={{
+                          duration: 0.6,
+                          ease: "easeOut",
+                          speed: "0.2",
+                          delay: index * 0.2,
+                        }}
+                      >
+                        <Link
+                          to={`/${item.toLowerCase()}`}
+                          onClick={() => setNav(false)}
+                        >
+                          {item}
+                        </Link>
+                      </motion.li>
+                    ))}
+                  </ul>
+
+                  {/* Social Links */}
+                  <motion.div className="mt-14 flex gap-5">
+                    {["LinkedIn", "Threads", "X (Twitter)"].map(
+                      (platform, index) => (
+                        <motion.h1
+                          key={platform}
+                          initial={{ y: "100%", opacity: 0 }}
+                          animate={{ y: "0%", opacity: 1 }}
+                          transition={{
+                            duration: 0.6,
+                            ease: "easeOut",
+                            delay: index * 0.4,
+                          }}
+                          className="font-bold font-family text-2xl"
+                        >
+                          {platform}
+                        </motion.h1>
+                      )
+                    )}
+                  </motion.div>
                 </div>
-              </div>
-              {/* closemenu */}
-              <div onClick={() => setNav(false)} className=" cursor-pointer">
-                <h2 className="font-family font-bold text-2xl text-black">
-                  CLOSE
-                </h2>
-              </div>
-            </div>
-          </motion.div>
-        </div>
+                {/* Close Button */}
+                <div onClick={() => setNav(false)} className="cursor-pointer">
+                  <h2 className="font-family font-bold text-2xl text-[#F1F0EB]">
+                    CLOSE
+                  </h2>
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
     </div>
   );

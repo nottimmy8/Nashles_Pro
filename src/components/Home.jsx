@@ -6,7 +6,7 @@ import Footer from "./Footer";
 
 const Home = () => {
   return (
-    <div className=" bg-[#0e0e0e]   ">
+    <div className=" bg-[#F1F0EB]   ">
       <Hero />
       <Complimentxt />
       <Techstack />

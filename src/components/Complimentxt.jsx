@@ -1,15 +1,27 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const Complimentxt = () => {
+  const textLines = [
+    "I approach every project with",
+    "wonder fueled by a boundless",
+    "spirit of inquisitiveness.",
+  ];
+
   return (
-    <div>
-      {/*  */}
-      <div className=" bg-[#0e0e0e] py-14   w-full text-center ">
-        <p className="text-white text-xl font-light font-family">
-          I approach every projects with <br /> wonder fueled by a boundless{" "}
-          <br /> spirit of inquisitiveness.
-        </p>
-      </div>
+    <div className="bg-[#F1F0EB]  w-full text-center overflow-hidden  mb-16">
+      <motion.h1 className="text-[#0E0F14] text-xl font-light font-family flex flex-col">
+        {textLines.map((line, index) => (
+          <motion.span
+            key={index}
+            initial={{ y: "100%", opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.3 }}
+          >
+            {line}
+          </motion.span>
+        ))}
+      </motion.h1>
     </div>
   );
 };
