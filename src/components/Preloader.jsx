@@ -48,12 +48,12 @@ const Preloader = ({ setLoading }) => {
             initial="hidden"
             animate={["moveUp", "moveLeft"]}
             custom={[100, 0.3]}
-            className="text-white font-bold text-[60px]"
+            className="text-white font-bold text-2xl md:text-[60px] "
           >
             NASHLES
           </motion.h1>
         </div>
-        <motion.div id="imgcon" className="w-[200px] h-max relative">
+        <div id="imgcon" className="w-[200px] h-max relative">
           <motion.img
             variants={imgChange}
             initial="hidden"
@@ -79,14 +79,14 @@ const Preloader = ({ setLoading }) => {
             src={cook2}
             alt=""
           />
-        </motion.div>
+        </div>
         <div className="overflow-y-clip">
           <motion.h1
             variants={move}
             initial="hidden"
             animate={["moveUp", "moveRight"]}
             custom={[-100, 0.3]}
-            className="text-white font-bold text-[60px]"
+            className="text-white font-bold  text-2xl md:text-[60px]"
           >
             KITCHEN
           </motion.h1>

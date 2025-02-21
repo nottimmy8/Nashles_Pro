@@ -9,8 +9,8 @@ const Complimentxt = () => {
   ];
 
   return (
-    <div className="bg-[#F1F0EB]  w-full text-center overflow-hidden  mb-16">
-      <motion.h1 className="text-[#0E0F14] text-xl font-light font-family flex flex-col">
+    <div className=" ">
+      <motion.h1 className="text-[#0E0F14] text-xl font-light font-family flex flex-col text-center">
         {textLines.map((line, index) => (
           <motion.span
             key={index}

@@ -15,7 +15,7 @@ const Navbar = () => {
     exit: {
       y: "-100%",
       opacity: 0,
-      transition: { duration: 0.9, ease: "easeInOut" },
+      transition: { duration: 0.4, ease: "easeInOut" },
     },
   };
 

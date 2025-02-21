@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Preloader from "./components/Preloader";
 import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import About from "./components/About";
-import Project from "./components/Project";
-import Contact from "./components/Contact";
-
+import AboutP from "./page/AboutP";
+import HomeP from "./page/HomeP";
+import ProjectP from "./page/ProjectP";
+import ContactP from "./page/ContactP";
+import Footer from "./components/Footer";
 const App = () => {
   const location = useLocation();
   const [loading, setLoading] = useState(false);
@@ -31,11 +31,12 @@ const App = () => {
         <>
           <Navbar />
           <Routes>
-            <Route path="/home" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/project" element={<Project />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/home" element={<HomeP />} />
+            <Route path="/about" element={<AboutP />} />
+            <Route path="/project" element={<ProjectP />} />
+            <Route path="/contact" element={<ContactP />} />
           </Routes>
+          {/* <Footer /> */}
         </>
       )}
     </>
