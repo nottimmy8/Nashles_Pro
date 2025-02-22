@@ -4,9 +4,8 @@ import Complimentxt from "./Complimentxt";
 
 const Home = ({}) => {
   return (
-    <div className=" relative w-full h-screen flex flex-col items-center justify-center">
+    <div className=" bg-[#0e0e0e] relative w-full h-screen flex flex-col items-center justify-center">
       <div>
-        {" "}
         <Hero />
       </div>
     </div>

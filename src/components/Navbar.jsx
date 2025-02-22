@@ -22,11 +22,11 @@ const Navbar = () => {
   const menuItems = ["HOME", "ABOUT", "PROJECT", "CONTACT"];
 
   return (
-    <div className="bg-transparent text-[#0E0F14] z-50 fixed w-full">
+    <div className="bg-transparent text-white z-50 fixed w-full">
       <nav className="max-w-7xl mx-auto">
         {/* Desktop Nav */}
         <div className="">
-          <div className="flex items-center justify-between text-[#0E0F14] p-4">
+          <div className="flex items-center justify-between text-white p-4">
             {/* Logo Text */}
             <motion.h1
               initial={{ y: "100%", opacity: 0 }}
