@@ -1,0 +1,126 @@
+/* Container for the card */
+.pickup-li {
+  width: 100%;
+  margin: 20px auto; /* Centers the card with spacing */
+  border-radius: 8px; /* Soft corners */
+  overflow: hidden; /* Ensures content stays within bounds */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Link styling */
+.pickup-a {
+  text-decoration: none; /* Removes underline */
+  color: inherit; /* Inherits text color */
+  display: block; /* Fills the container */
+  transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.pickup-a:hover {
+  transform: scale(1.02); /* Slight zoom on hover */
+}
+
+/* Info section (placeholder) */
+.cases-inf {
+  height: 10px; /* Minimal height since empty in original */
+  background-color: #a51313; /* Light gray for subtle separation */
+}
+
+/* Main content container */
+.mq.pickup-h1.cases-h1 {
+  position: relative;
+  overflow: hidden; /* Clips overflowing content (e.g., for animations) */
+  padding: 20px; /* Inner spacing */
+  background-color: #fff; /* White background */
+}
+
+/* Clip-y class suggests vertical clipping, but we'll focus on layout */
+.clip-y {
+  overflow-y: hidden; /* Vertical clipping if needed */
+}
+
+/* Serif font for headings */
+.serif {
+  font-family: "Georgia", serif; /* Serif font as per class */
+}
+
+/* Inner content layout */
+.h1.p.o {
+  display: flex; /* Aligns image and text horizontally */
+  align-items: center; /* Vertically centers content */
+  gap: 15px; /* Space between image and text */
+}
+
+/* Word and text container */
+.w.t {
+  display: flex; /* Ensures thumbnail and text align */
+  align-items: center;
+}
+
+/* Thumbnail styling */
+.thumb.bg-img {
+  width: 100px; /* Fixed width for consistency */
+  height: 100px; /* Square thumbnail */
+  background-size: cover; /* Ensures image fills space */
+  background-position: center; /* Centers image */
+  border-radius: 4px; /* Soft edges */
+  position: relative; /* For layering */
+  transition: opacity 0.3s ease; /* Fade effect */
+}
+
+.thumb.bg-img:hover {
+  opacity: 0.9; /* Slight fade on hover */
+}
+
+/* Image inside thumbnail */
+.thumb.bg-img .img {
+  width: 100%;
+  height: 100%;
+}
+
+.thumb.bg-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures image fits without distortion */
+  display: block; /* Removes inline spacing */
+}
+
+/* Text label */
+.l {
+  font-size: 2rem; /* Large h1-like size */
+  font-weight: bold; /* Bold for emphasis */
+  color: #333; /* Dark gray for readability */
+  white-space: nowrap; /* Prevents wrapping */
+}
+
+/* Animation for mq-ul (optional marquee effect) */
+.mq-anim .mq-ul {
+  display: inline-block; /* Allows transform */
+  animation: marquee 5s linear infinite; /* Scrolling effect */
+}
+
+/* Keyframes for marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0); /* Start position */
+  }
+  100% {
+    transform: translateX(-100%); /* Move fully left */
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .pickup-li {
+    max-width: 100%; /* Full width on small screens */
+    margin: 10px; /* Reduced spacing */
+  }
+
+  .thumb.bg-img {
+    width: 80px; /* Smaller thumbnail */
+    height: 80px;
+  }
+
+  .l {
+    font-size: 1.5rem; /* Smaller text */
+  }
+}

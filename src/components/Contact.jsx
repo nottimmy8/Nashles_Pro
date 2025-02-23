@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { RiTwitterXLine } from "react-icons/ri";
 import { FaLinkedin } from "react-icons/fa6";
 import { FaGithubSquare } from "react-icons/fa";
+import Cursor from "./Cursor";
 
 const Contact = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -39,8 +40,9 @@ const Contact = () => {
 
   return (
     <div className="w-full bg-[#0e0e0e] h-screen  py-12">
+      <Cursor />
       <div className="max-w-7xl mx-auto p-4 relative text-center flex flex-col items-center justify-center">
-        <h1 className="font-family inline-block font-bold text-[160px] absolute -top-20 text-center text-white z-40">
+        <h1 className="font-family inline-block font-bold text text-[160px] absolute -top-20 text-center text-white z-40">
           <motion.span
             className="inline-block"
             animate={{ y: scrollY > 50 ? -30 : 0 }}
@@ -58,7 +60,7 @@ const Contact = () => {
         </h1>
 
         {/*  */}
-        <div className="mt-40  flex flex-col items-center justify-center ">
+        <div className="mt-40 w-full    flex flex-col items-center justify-center ">
           <motion.div
             className="text-white text-center max-w-lg px-4"
             variants={containerVariants}
@@ -98,17 +100,21 @@ const Contact = () => {
                 href="https://linkedin.com/in/yourprofile"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-blue-500 transition-colors"
               >
-                <FaLinkedin />
+                <FaLinkedin
+                  size={30}
+                  className="text-white hover:text-blue-500 transition-colors"
+                />
               </a>
               <a
-                href="https://github.com/yourprofile"
+                href="https://github.com/@nottimmy8"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-gray-300 transition-colors"
               >
-                <FaGithubSquare />
+                <FaGithubSquare
+                  size={30}
+                  className="text-white hover:text-blue-500 transition-colors"
+                />
               </a>
               <a
                 href="https://twitter.com/@nottimmy8"
@@ -116,7 +122,7 @@ const Contact = () => {
                 rel="noopener noreferrer"
               >
                 <RiTwitterXLine
-                  size={20}
+                  size={30}
                   className="text-white hover:text-blue-400 transition-colors"
                 />
               </a>

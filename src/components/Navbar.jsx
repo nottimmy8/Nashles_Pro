@@ -19,7 +19,12 @@ const Navbar = () => {
     },
   };
 
-  const menuItems = ["HOME", "ABOUT", "PROJECT", "CONTACT"];
+  const menuItems = [
+    { id: 1, name: "HOME", link: "/" },
+    { id: 2, name: "ABOUT", link: "/about" },
+    { id: 3, name: "PROJECT", link: "/project" },
+    { id: 4, name: "CONTACT", link: "/contact" },
+  ];
 
   return (
     <div className="bg-transparent text-white z-50 fixed w-full">
@@ -32,7 +37,7 @@ const Navbar = () => {
               initial={{ y: "100%", opacity: 0 }}
               animate={{ y: "0%", opacity: 1 }}
               transition={{ duration: 1, ease: "easeOut" }}
-              className="font-family font-bold text-3xl"
+              className="font-family font-bold  text-xl  md:text-2xl"
             >
               Nashles
             </motion.h1>
@@ -43,7 +48,7 @@ const Navbar = () => {
                 initial={{ y: "100%", opacity: 0 }}
                 animate={{ y: "0%", opacity: 1 }}
                 transition={{ duration: 1, ease: "easeOut" }}
-                className="font-family font-bold text-2xl "
+                className="font-family font-bold text-xl md:text-2xl "
               >
                 MENU
               </motion.h2>
@@ -73,17 +78,17 @@ const Navbar = () => {
                     delay: 0.5,
                     speed: "0.2",
                   }}
-                  className="font-bold font-family text-2xl"
+                  className=" flex flex-col font-bold font-family text-base md:text-2xl"
                 >
-                  Oyewole Emmanuel <br /> Nashles
+                  <span> Oyewole Emmanuel </span> <span>Nashles</span>
                 </motion.h1>
 
                 <div>
                   {/* Navigation Links */}
-                  <ul className="flex flex-col items-center font-bold text-[60px] leading-14">
+                  <ul className="flex flex-col items-center font-bold text-[32px] md:text-[60px] leading-14">
                     {menuItems.map((item, index) => (
                       <motion.li
-                        key={item}
+                        key={item.id}
                         initial={{ y: "100%", opacity: 0 }}
                         animate={{ y: "0%", opacity: 1 }}
                         transition={{
@@ -93,11 +98,8 @@ const Navbar = () => {
                           delay: index * 0.2,
                         }}
                       >
-                        <Link
-                          to={`/${item.toLowerCase()}`}
-                          onClick={() => setNav(false)}
-                        >
-                          {item}
+                        <Link to={item.link} onClick={() => setNav(false)}>
+                          {item.name}
                         </Link>
                       </motion.li>
                     ))}
@@ -116,7 +118,7 @@ const Navbar = () => {
                             ease: "easeOut",
                             delay: index * 0.4,
                           }}
-                          className="font-bold font-family text-2xl"
+                          className="font-bold font-family text-base md:text-2xl"
                         >
                           {platform}
                         </motion.h1>
@@ -126,7 +128,7 @@ const Navbar = () => {
                 </div>
                 {/* Close Button */}
                 <div onClick={() => setNav(false)} className="cursor-pointer">
-                  <h2 className="font-family font-bold text-2xl text-[#F1F0EB]">
+                  <h2 className="font-family font-bold text-xl md:text-2xl text-[#F1F0EB]">
                     CLOSE
                   </h2>
                 </div>
